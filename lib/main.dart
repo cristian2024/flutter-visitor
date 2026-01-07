@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_visitor/core.dart';
 
 void main() {
+  inject();
   runApp(const MainApp());
 }
 
