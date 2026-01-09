@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_visitor/core.dart';
-import 'package:flutter_visitor/core/presentation/formatters/currency_formatter.dart';
 import 'package:flutter_visitor/features/products.dart';
-import 'package:intl/intl.dart';
 
 
 class ProductCard extends StatelessWidget {

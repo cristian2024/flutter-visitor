@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_visitor/core.dart';
-import 'package:flutter_visitor/core.dart';
 import 'package:flutter_visitor/features/cart.dart';
 import 'package:flutter_visitor/features/products.dart';
 
@@ -73,7 +72,7 @@ class ProductCartCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        
                         children: [
                           Text(item.value.formatCurrency()),
                           Icon(Icons.arrow_forward),
