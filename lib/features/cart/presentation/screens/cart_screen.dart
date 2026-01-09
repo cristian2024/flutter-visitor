@@ -3,6 +3,34 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_visitor/core.dart';
 import 'package:flutter_visitor/features/cart.dart';
 
+/// ------------------------------------------------------------
+/// CartScreen
+/// ------------------------------------------------------------
+///
+/// Pantalla encargada de mostrar el contenido del carrito
+/// de compras y el resumen de la transacción.
+/// ------------------------------------------------------------
+/// Funcionalidad:
+/// ------------------------------------------------------------
+/// - Muestra la lista de productos agregados al carrito.
+/// - Permite incrementar o disminuir la cantidad de cada producto.
+/// - Calcula y presenta:
+///   - Descuento total.
+///   - Impuestos totales.
+///   - Valor final de la compra.
+/// - Cierra automáticamente la pantalla cuando el carrito
+///   queda vacío.
+/// ------------------------------------------------------------
+/// Estado y control:
+/// ------------------------------------------------------------
+/// - Consume el estado de `CartCubit`.
+/// - Escucha cambios para detectar cuando la cantidad total
+///   de ítems llega a cero.
+/// ------------------------------------------------------------
+/// Navegación:
+/// ------------------------------------------------------------
+/// - `routeName` define el identificador de ruta de la pantalla.
+/// ------------------------------------------------------------
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
   static const String routeName = "cart";

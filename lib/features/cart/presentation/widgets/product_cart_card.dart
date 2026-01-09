@@ -3,6 +3,47 @@ import 'package:flutter_visitor/core.dart';
 import 'package:flutter_visitor/features/cart.dart';
 import 'package:flutter_visitor/features/products.dart';
 
+/// ------------------------------------------------------------
+/// ProductCartCard
+/// ------------------------------------------------------------
+///
+/// Widget visual que representa un producto dentro del carrito
+/// de compras.
+/// ------------------------------------------------------------
+/// Funcionalidad:
+/// ------------------------------------------------------------
+/// - Muestra la información básica del producto.
+/// - Indica la cantidad seleccionada.
+/// - Calcula y presenta:
+///   - Precio unitario.
+///   - Precio total según cantidad.
+///   - Descuentos aplicados.
+///   - Impuestos.
+///   - Precio final.
+/// - Permite aumentar o disminuir la cantidad del producto.
+/// ------------------------------------------------------------
+/// Integración:
+/// ------------------------------------------------------------
+/// - Utiliza el patrón Visitor para calcular descuentos,
+///   impuestos y precio final (`DiscountsVisitor`,
+///   `TaxesVisitor`, `FinalPriceVisitor`).
+/// ------------------------------------------------------------
+/// Parámetros del constructor:
+/// ------------------------------------------------------------
+/// * [item]
+///   Instancia de `Product` que representa el producto
+///   en el carrito.
+///
+/// * [quantity]
+///   Cantidad actual del producto.
+///
+/// * [onAddItem]
+///   Callback ejecutado para incrementar la cantidad.
+///
+/// * [onRemoveItem]
+///   Callback ejecutado para disminuir la cantidad.
+/// ------------------------------------------------------------
+
 class ProductCartCard extends StatelessWidget {
   const ProductCartCard({
     super.key,
@@ -72,7 +113,6 @@ class ProductCartCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        
                         children: [
                           Text(item.value.formatCurrency()),
                           Icon(Icons.arrow_forward),
@@ -112,8 +152,9 @@ class ProductCartCard extends StatelessWidget {
                           style: textTheme.titleSmall,
                           children: [
                             TextSpan(
-                              text: (item.accept(FinalPriceVisitor()) * quantity)
-                                  .formatCurrency(),
+                              text:
+                                  (item.accept(FinalPriceVisitor()) * quantity)
+                                      .formatCurrency(),
                               style: textTheme.bodyMedium,
                             ),
                           ],

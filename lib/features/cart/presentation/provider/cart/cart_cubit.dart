@@ -7,6 +7,33 @@ import 'package:flutter_visitor/features/cart/domain/visitors/taxes_visitor.dart
 
 part 'cart_state.dart';
 
+
+/// ------------------------------------------------------------
+/// CartCubit
+/// ------------------------------------------------------------
+///
+/// Cubit responsable de manejar el estado del carrito de
+/// compras.
+/// ------------------------------------------------------------
+/// Responsabilidades:
+/// ------------------------------------------------------------
+/// - Agregar productos al carrito.
+/// - Remover productos del carrito.
+/// - Mantener la cantidad de cada producto.
+/// - Emitir un nuevo estado ante cualquier cambio.
+/// ------------------------------------------------------------
+/// Estado manejado:
+/// ------------------------------------------------------------
+/// - `CartState`
+///   Contiene la relación de productos con sus cantidades,
+///   así como los valores calculados del carrito.
+/// ------------------------------------------------------------
+/// Integración:
+/// ------------------------------------------------------------
+/// - Trabaja en conjunto con los Visitors de dominio
+///   (`DiscountsVisitor`, `TaxesVisitor`, `FinalPriceVisitor`)
+///   para el cálculo de descuentos, impuestos y precios finales.
+/// ------------------------------------------------------------
 class CartCubit extends Cubit<CartState> {
   CartCubit() : super(const CartState());
 

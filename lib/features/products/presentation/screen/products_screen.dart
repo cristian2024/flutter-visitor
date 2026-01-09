@@ -3,6 +3,34 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_visitor/core.dart';
 import 'package:flutter_visitor/features/products.dart';
 
+/// ------------------------------------------------------------
+/// ProductsScreen
+/// ------------------------------------------------------------
+///
+/// Pantalla principal encargada de mostrar el catálogo
+/// de productos.
+///
+/// Esta pantalla:
+/// - Provee una instancia de `ProductsCubit` al árbol de widgets.
+/// - Inicializa la carga de productos al momento de creación.
+/// - Delega la visualización del contenido a `ProductBody`.
+/// ------------------------------------------------------------
+/// Navegación:
+/// ------------------------------------------------------------
+/// - `routeName` define el identificador de ruta de la pantalla.
+/// ------------------------------------------------------------
+/// Parámetros del constructor:
+/// ------------------------------------------------------------
+/// * [onAddProduct]
+///   Callback ejecutado cuando se agrega un producto al carrito.
+///
+/// * [onNavigateToCart]
+///   Callback ejecutado para navegar a la pantalla del carrito.
+///
+/// * [productsInCart]
+///   Cantidad de productos actualmente en el carrito.
+///   Se utiliza para mostrar el contador correspondiente.
+/// ------------------------------------------------------------
 class ProductsScreen extends StatelessWidget {
   const ProductsScreen({
     super.key,
