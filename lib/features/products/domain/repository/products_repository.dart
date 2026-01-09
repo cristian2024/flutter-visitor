@@ -1,5 +1,5 @@
-import 'package:flutter_visitor/core.dart' show ProductItem;
+import 'package:flutter_visitor/core.dart' show Product;
 
 abstract interface class ProductsRepository{
-  Future<List<ProductItem>> getProducts();
+  Future<List<Product>> getProducts();
 }

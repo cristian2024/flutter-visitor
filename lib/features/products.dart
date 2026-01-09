@@ -3,6 +3,8 @@ export 'products/infrastructure/product_fake_repo.dart';
 
 
 export 'products/presentation/widgets/product_card.dart';
+export 'products/presentation/widgets/product_body.dart';
+
 export 'products/presentation/widgets/product_type_tag.dart';
 export 'products/presentation/screen/products_screen.dart';
 
