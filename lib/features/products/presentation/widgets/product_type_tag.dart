@@ -11,16 +11,19 @@ class ProductTypeTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    return Chip(label: Text(typeTitle),padding: EdgeInsets.zero,);
+    return Chip(
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      label: Text(typeTitle),
+      padding: EdgeInsets.zero,
+    );
   }
 
-  String get typeTitle{
-    return switch(product){
+  String get typeTitle {
+    return switch (product) {
       ImportedProduct() => "Importado",
       PhysicalProduct() => "Fisico",
       ServiceProduct() => "Servicio",
-      _ => ""
+      _ => "",
     };
   }
 }

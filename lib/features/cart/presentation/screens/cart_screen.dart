@@ -1,0 +1,103 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_visitor/core.dart';
+import 'package:flutter_visitor/features/cart.dart';
+
+class CartScreen extends StatelessWidget {
+  const CartScreen({super.key});
+  static const String routeName = "cart";
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return Scaffold(
+      appBar: AppBar(),
+      body: SafeArea(
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: BlocConsumer<CartCubit, CartState>(
+            listenWhen: (previous, current) {
+              return current.itemsQuantity == 0;
+            },
+            listener: (context, state) {
+              Navigator.pop(context);
+            },
+            builder: (context, state) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: state.productsWithQuantity.keys.map(
+                          (product) {
+                            return ProductCartCard(
+                              item: product,
+                              quantity: state.productsWithQuantity[product]!,
+                              onAddItem: () {
+                                context.read<CartCubit>().addItem(product);
+                              },
+                              onRemoveItem: () {
+                                context.read<CartCubit>().removeItem(product);
+                              },
+                            );
+                          },
+                        ).toList(),
+                      ),
+                    ),
+                  ),
+                  Divider(),
+                  RichText(
+                    text: TextSpan(
+                      text: "Descuento total: ",
+                      style: textTheme.labelLarge,
+                      children: [
+                        TextSpan(
+                          text: (-state.totalDiscount)
+                              .formatCurrency()
+                              .toString(),
+                          style: textTheme.bodyMedium,
+                        ),
+                      ],
+                    ),
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      text: "Impuestos totales: ",
+                      style: textTheme.labelLarge,
+                      children: [
+                        TextSpan(
+                          text: state.totalTaxes.formatCurrency().toString(),
+                          style: textTheme.bodyMedium,
+                        ),
+                      ],
+                    ),
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      text: "Valor total: ",
+                      style: textTheme.labelLarge,
+                      children: [
+                        TextSpan(
+                          text: state.totalValue.formatCurrency().toString(),
+                          style: textTheme.bodyMedium,
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Divider(),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Comprar'),
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
