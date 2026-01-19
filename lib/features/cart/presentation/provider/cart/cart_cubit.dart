@@ -71,6 +71,7 @@ class CartCubit extends Cubit<CartState> {
         state.copyWith(productsWithQuantity: temporalProducts),
       );
     } catch (e) {
+    
       //TODO - manejo de errores
     }
   }
