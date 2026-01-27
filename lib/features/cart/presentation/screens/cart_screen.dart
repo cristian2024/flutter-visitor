@@ -119,7 +119,14 @@ class CartScreen extends StatelessWidget {
 
                     Divider(),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async{
+                        
+                        await showDialog(
+                          context: context,
+                          builder: (context) => const AlertSuccessfulPurchase(),
+                        );
+                        context.read<CartCubit>().clearCart();
+                      },
                       child: Text('Comprar'),
                     ),
                   ],

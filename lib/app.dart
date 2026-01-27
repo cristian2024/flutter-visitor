@@ -24,6 +24,7 @@ class App extends StatelessWidget {
       child: Builder(
         builder: (context) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             initialRoute: ProductsScreen.routeName,
             routes: {
               CartScreen.routeName: (_) {
