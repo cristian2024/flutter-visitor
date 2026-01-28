@@ -6,7 +6,7 @@ import 'package:flutter_visitor/core.dart';
 import 'package:flutter_visitor/features/cart.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../../../../common/rich_text_test.dart';
+import '../../../../common/rich_text.dart';
 
 class MockCartCubit extends MockCubit<CartState> implements CartCubit {}
 

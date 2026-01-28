@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_visitor/core.dart';
 import 'package:flutter_visitor/features/products.dart';
 
-import '../../../../common/rich_text_test.dart';
+import '../../../../common/rich_text.dart';
 
 class MockProductsCubit extends MockCubit<ProductsState>
     implements ProductsCubit {}

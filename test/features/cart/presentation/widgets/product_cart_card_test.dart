@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_visitor/core.dart';
 import 'package:flutter_visitor/features/cart.dart';
 
-import '../../../../common/rich_text_test.dart';
+import '../../../../common/rich_text.dart';
 
 
 void main() {
